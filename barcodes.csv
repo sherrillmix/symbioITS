@@ -1,0 +1,19 @@
+barcode,sample,clade,host,site,dgge,isoclonal
+AACGAAGC,rt147.rep1,B1,Pseudoterogorgia bipinnata,Jamaica,B1,TRUE
+AACGATCC,rt147.rep2,B1,Pseudoterogorgia bipinnata,Jamaica,B1,TRUE
+AACGATGG,rt64,B1,Cassiopea xamachana,Jamaica,B1,TRUE
+AACCAACC,CCMP2467.rep1,A1,Stylophora pistillata,Gulf of Aqaba,A1,TRUE
+AACCAAGG,CCMP2467.rep2,A1,Stylophora pistillata,Gulf of Aqaba,A1,TRUE
+AACCATCG,KB8,A1,Cassiopea xamachana,Hawaii,A1,TRUE
+AACCGGAA,Cult152,C1,Discosoma sanctithomae,Jamaica,C1,TRUE
+AACCTTCC,AB.1.1,A1:B1,CCMP2467:rt-147 pool (1:1),Pooled cultures,B1,TRUE
+AACCTTGG,AB.1.3,A1:B1,CCMP2467:rt-147 pool (1:3),Pooled cultures,B1,TRUE
+AACGAACG,P.DOG.R3.2,NA,Pocillopora verrucosa,"Doga, Red Sea",A1,FALSE
+AACCTAGC,P.MAQ.R2.19,NA,P. verrucosa,"Maqna, Red Sea",C1h,FALSE
+AACCATGC,P.MAQ.R2.7,NA,P. verrucosa,"Maqna, Red Sea",A1,FALSE
+AACCGCAT,P.WAJ.R1.5,NA,P. verrucosa,"Al Wajh, Red Sea",A1,FALSE
+AACCTACG,P.WAJ.D7,NA,P. verrucosa,"Al Wajh, Red Sea",C1c,FALSE
+AACCGGTT,A.AF.B6,NA,Acropora hemprichii,"Al Fahal Reef, Red Sea",C41,FALSE
+
+
+
