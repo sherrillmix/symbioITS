@@ -86,3 +86,28 @@ for(ii in 1:nrow(barcodes)){
 		plotDNA(removeGapCols(seqs[order(groupDists[as.character(groups)],groups,seqs)],maxGapProp=.95),main=with(barcodes[bar,],sprintf('%s (%s %s %s)',sample,host,dgge,ifelse(isoclonal,'isoclonal','field'))))
 	dev.off()
 }
+
+cladeOtus<-as.numeric(tail(names(sort(apply(otuTable,2,sum))),3))
+otuAligns<-cacheOperation('work/otuAlign.Rdat',lapply,cladeOtus,function(otu,bigSeqs){
+	message(otu)
+	thisSeqs<-symbio[symbio$otu==otu,'trim']
+	otuSeq<-tail(names(sort(table(thisSeqs))),1)
+	align<-levenAlign(thisSeqs,otuSeq,nThreads=12,homoLimit=3,append=c(TRUE,TRUE))
+	dist<-leven(thisSeqs,otuSeq,nThreads=12,homoLimit=3,append=c(TRUE,TRUE))[,1]
+	return(c(align,'dist'=list(dist)))
+},bigSeqs)
+names(otuAligns)<-cladeOtus
+
+for(ii in cladeOtus){
+	message(ii)
+	png(sprintf('out/otu%02ds.png',ii),width=3000,height=1500,res=250)
+		seqs<-otuAligns[[as.character(ii)]][[2]]
+		groups<-symbio[symbio$otu==ii,'sample']
+		dists<-otuAligns[[as.character(ii)]][[3]]
+		groupDists<-tapply(dists,groups,mean)
+		clade<-tail(names(sort(table(symbio[symbio$otu==ii,'dgge']))),1)
+		groupRanks<-rank(groupDists,ties.method='first')
+		plotDNA(removeGapCols(seqs[order(groupDists[as.character(groups)],groups,seqs)],maxGapProp=.95),main=sprintf('OTU %d (clade %s)',ii,clade),groups=groups)
+	dev.off()
+}
+
